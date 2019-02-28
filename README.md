@@ -21,7 +21,7 @@ You should install following tools on Raspbian.
 </ul>
 
 ###  usage ###
-python subscriber.py <GPIO> <POST_URL> <interval>
+python subscriber.py &lt;GPIO&gt; &lt;POST_URL&gt; &lt;interval_second&gt;
 python subscriber.py 4 http://localhost/api/pushto 30
 
 now writing...
