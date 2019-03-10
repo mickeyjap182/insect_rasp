@@ -30,3 +30,5 @@ You should install following tools on Raspbian.
 ###  usage ###
 python subscriber.py &lt;GPIO&gt; &lt;POST_URL&gt; &lt;interval_second&gt;
 python subscriber.py 4 http://localhost/api/pushto 30
+
+<p>now writing...</p>
