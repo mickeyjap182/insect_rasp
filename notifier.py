@@ -25,6 +25,8 @@ while True:
 
         # ファイル情報
         ct = datetime.now()
+        if int(ct.strftime("%H") != 6:
+            continue
         target_date = Date.get_yesterdate(ct)
         read_csv = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'files', target_date + '.csv')
         save_report = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'report', target_date + '.png')
@@ -38,5 +40,5 @@ while True:
         s = Subscriber(token)
         s.send(message)
 
-    time.sleep( 60 * 60 * 24)
+    time.sleep( 58 * 60)
     

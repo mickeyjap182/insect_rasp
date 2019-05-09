@@ -18,6 +18,15 @@ class Date():
         return day.strftime("%Y_%m_%d")
 
     @staticmethod
+    def get_target_hour(date):
+        h = int(date.strftime("%H"))
+        # 7時未満は前日のデータあつかい
+        day = date
+        if h < 7 :
+            h = h + 24
+        return "{:0=2}".format(h)
+
+    @staticmethod
     def get_yesterdate(date):
         day = Date.yesterday(date)
         return day.strftime("%Y_%m_%d")
@@ -35,7 +44,7 @@ class Data():
         f = Formatter()
         c = Csv(f)
         contents = [
-            [int(date.strftime("%H")),round(humidity, 1), round(temperature, 1)],
+            [Date.get_target_hour(date),round(humidity, 1), round(temperature, 1)],
         ]
         c.write(file_path, contents, headers=Data.HEADER)
 
