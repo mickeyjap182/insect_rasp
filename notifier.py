@@ -25,15 +25,15 @@ while True:
 
         # ファイル情報
         ct = datetime.now()
-        if int(ct.strftime("%H")) != 6:
-            continue
-        target_date = Date.get_yesterdate(ct)
-        read_csv = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'files', target_date + '.csv')
-        save_report = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'report', target_date + '.png')
+        if int(ct.strftime("%H")) == 6:
+            target_date = Date.get_yesterdate(ct)
+            read_csv = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'files', target_date + '.csv')
+            save_report = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'report', target_date + '.png')
 
-        # データの送信
-        Data.create_report(target_date, read_csv, save_report)
-        Notify.send_report(ct, save_report, token)
+            # データの送信
+            Data.create_report(target_date, read_csv, save_report)
+            Notify.send_report(ct, save_report, token)
+
     except BaseException as e:
         message = 'ERROR:' + str(e) + str(traceback.format_exc())
         print(message)
