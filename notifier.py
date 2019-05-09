@@ -25,7 +25,7 @@ while True:
 
         # ファイル情報
         ct = datetime.now()
-        if int(ct.strftime("%H") != 6:
+        if int(ct.strftime("%H")) != 6:
             continue
         target_date = Date.get_yesterdate(ct)
         read_csv = os.path.join( os.path.dirname(os.path.abspath(__file__)), 'files', target_date + '.csv')
